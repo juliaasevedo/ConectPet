@@ -12,8 +12,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
  
 
@@ -88,6 +90,13 @@
         </nav>
 
         <main class="py-4">
+        <script>
+            var mensagemErro = "{{ session('mensagem-erro') }}";
+            var mensagemAlerta = "{{ session('mensagem-alerta') }}";
+            var mensagemSucesso = "{{ session('mensagem-sucesso') }}";
+        </script>
+        <script src="{{ asset('/js/all.js')}}"></script>
+
             @yield('content')
         </main>
     </div>

@@ -25,9 +25,8 @@ Route::get('/vacina', function () {
     return view('cartaoVacina');
 });
 
-Route::get('/pets', function () {
-    return view('pets');
-});
+Route::get('/pets', [App\Http\Controllers\PetController::class, 'index']);
+
 Route::get('/cadastro_pet', function () {
     return view('cadastroPet');
 });

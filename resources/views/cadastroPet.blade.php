@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Cadastrar Novo Pet') }}</div>
                 <div class="card-body"> 
-                    <form method="POST" action="#">
+                    <form method="POST" action="{{ url('/pet/save') }}">
                         @csrf
                         <div class="row form-group">
                             <label for="name" class="col-md-1 col-form-label text-md-right">Nome:</label>
@@ -16,7 +16,7 @@
                             </div>
                             <label for="proprietario" class="col-md-2 col-form-label text-md-right">Proprietário:</label>
                             <div class="col-md-4">    
-                                <input type="text" id="proprietario" class="form-control" name="proprietario" required value= "{{ Auth::user()->name }}">
+                                <input type="text" id="proprietario" class="form-control" name="proprietario" required value= "{{ Auth::user()->id }}">
                             </div>
                         </div>
                         <br>
@@ -35,7 +35,7 @@
                             </div>
                             <label for="vet" class="col-md-2 col-form-label text-md-right">Veterinário:</label>
                             <div class="col-md-3">
-                                <input type="text" id="vet" class="form-control" name="vet" required>
+                                <input type="text" id="vet" class="form-control" name="vet" required value= "{{ Auth::user()->id }}">
                             </div>
                         </div>
                         <br>
