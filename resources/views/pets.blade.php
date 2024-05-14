@@ -20,7 +20,7 @@
                             <tr>
                                 <th class="col-md-2">Nome</th>
                                 <th class="col-md-1">Tipo</th>
-                                <th class="col-md-2">Raça</th>
+                                <th class="col-md-2">Raça:</th>
                                 <th class="col-md-2">Veterinário</th>
                                 <th class="col-md-2">Proprietário</th>
                                 <th class="col-md-3">Exibir cartão de vacinas</th>
