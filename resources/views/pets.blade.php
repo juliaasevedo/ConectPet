@@ -23,7 +23,8 @@
                                 <th class="col-md-2">Raça:</th>
                                 <th class="col-md-2">Veterinário</th>
                                 <th class="col-md-2">Proprietário</th>
-                                <th class="col-md-3">Exibir cartão de vacinas</th>
+                                <th class="col-md-1">Cartão de vacinas</th>
+                                <th class="col-md-2">Registrar Vacina</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,14 +39,17 @@
                                 <td class="col-md-1">N/A</td>
                                 @endif
                                 <td class="col-md-2">{{$pet->raca}}</td>
-                                @foreach ($pessoas as $usuario)
-                                @if($usuario->id == $pet->veterinario)
-                                <td class="col-md-2">{{$usuario->name}}</td>
-                                <td class="col-md-2">{{$usuario->name}}</td>
+                                @foreach ($pessoas as $pessoa)
+                                @if($pessoa->id == $pet->veterinario)
+                                <td class="col-md-2">{{$pessoa->name}}</td>
+                                <td class="col-md-2">{{$pessoa->name}}</td>
                                 @endif
                                 @endforeach
-                                <td class="col-md-3 text-center">
+                                <td class="col-md-1 text-center">
                                 <a class="btn btn-success btn-sm " href="#"><i class="fa fa-eye"></i></a>
+                                </td>
+                                <td class="col-md-2 text-center">
+                                <a class="btn btn-success btn-sm " href="{{ url('/vacina/registro', $pet->id) }}"><i class="fa fa-plus"></i></a>
                                 </td>
                              
                             </tr>

@@ -30,4 +30,15 @@ Route::get('/pets', [App\Http\Controllers\PetController::class, 'index']);
 Route::get('/cadastro_pet', function () {
     return view('cadastroPet');
 });
+
 Route::post('/pet/save', [App\Http\Controllers\PetController::class, 'store']);
+
+Route::get('/cadastro_vacina', function () {
+    return view('cadastroVacina');
+});
+
+Route::post('/vacina/save', [App\Http\Controllers\VacinaController::class, 'store']);
+
+Route::get('/vacinas', [App\Http\Controllers\VacinaController::class, 'index']);
+
+Route::get('/vacina/registro/{pet}', [App\Http\Controllers\AtendimentoController::class, 'store']);
