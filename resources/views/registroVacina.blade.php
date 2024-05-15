@@ -9,27 +9,30 @@
                 <div class="card-body"> 
                     <form method="POST" action="{{ url('/vacina/registro/save') }}">
                         @csrf
-                        @foreach($pet as $batata)
+                        @foreach($pet as $pet)
                         <div class="row form-group">
                             <label for="pet" class="col-md-1 col-form-label text-md-right">Pet:</label>
                             <div class="col-md-11">
-                                <input type="text" id="pet" class="form-control" name="pet" required value='{{ $batata->name }}'>
+                                <input type="hidden" id="pet" class="form-control" name="pet" required readonly value='{{ $pet->id }}'>
+                                <input type="text" id="" class="form-control" name="" required readonly value='{{ $pet->name }}'>
                             </div>
                         </div>
                         <br>
                         @endforeach
                         <div class="row form-group">
                             <label for="vacina" class="col-md-1 col-form-label text-md-right">Vacina:</label>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <select name="vacina" id="vacina" class="form-control">
                                     <option value="0" selected>Selecione uma opção...</option>
-                                    <option value="1">Gato</option>
-                                    <option value="2">Cachorro</option>
+                                    @foreach($vacinas as $vacina)
+                                    <option value="{{ $vacina->id }}">{{$vacina->name}} / Lote: {{$vacina->lote}}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <label for="veterinario" class="col-md-1 col-form-label text-md-right">Veterinário:</label>
+                            <label for="veterinario" class="col-md-2 col-form-label text-md-right">Veterinário:</label>
                             <div class="col-md-5">    
-                                <input type="text" id="veterinario" class="form-control" name="veterinario" required value="">
+                                <input type="hidden" id="veterinario" class="form-control" name="veterinario" required value="{{Auth::user()->id}}">
+                                <input type="text" id="" class="form-control" name="" required readonly value="{{Auth::user()->name}}">
                             </div>
                         </div>
                         <br>

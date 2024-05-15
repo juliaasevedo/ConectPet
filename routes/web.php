@@ -41,4 +41,8 @@ Route::post('/vacina/save', [App\Http\Controllers\VacinaController::class, 'stor
 
 Route::get('/vacinas', [App\Http\Controllers\VacinaController::class, 'index']);
 
-Route::get('/vacina/registro/{pet}', [App\Http\Controllers\AtendimentoController::class, 'store']);
+Route::get('/vacina/registro/{pet}', [App\Http\Controllers\AtendimentoController::class, 'index']);
+
+Route::post('/vacina/registro/save', [App\Http\Controllers\AtendimentoController::class, 'store']);
+
+Route::get('/cartao/vacina/{pet}', [App\Http\Controllers\AtendimentoController::class, 'cartaoVacina']);

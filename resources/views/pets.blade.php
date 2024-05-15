@@ -46,7 +46,7 @@
                                 @endif
                                 @endforeach
                                 <td class="col-md-1 text-center">
-                                <a class="btn btn-success btn-sm " href="#"><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-success btn-sm " href="{{ url('/cartao/vacina', $pet->id) }}"><i class="fa fa-eye"></i></a>
                                 </td>
                                 <td class="col-md-2 text-center">
                                 <a class="btn btn-success btn-sm " href="{{ url('/vacina/registro', $pet->id) }}"><i class="fa fa-plus"></i></a>
