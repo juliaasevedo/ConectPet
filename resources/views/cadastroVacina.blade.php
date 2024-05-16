@@ -19,13 +19,18 @@
                         <br>
                         <div class="row form-group">
                             <label for="lote" class="col-md-1 col-form-label text-md-right">Lote:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <input type="text" id="lote" class="form-control" name="lote" required>
                             </div>
                             <label for="dose" class="col-md-1 col-form-label text-md-right">Dose:</label>
-                            <div class="col-md-5">    
+                            <div class="col-md-3">    
                                 <input type="number" id="dose" class="form-control" name="dose" min="1" max="6" required>
                             </div>
+                            <label for="dataValidade" class="col-md-1 col-form-label text-md-right">Data de Validade:</label>
+                            <div class="col-md-3">    
+                                <input type="date" id="dataValidade" class="form-control" name="dataValidade" required>
+                            </div>
+
                         </div>
                         <br>
                         <div class="row form-group">

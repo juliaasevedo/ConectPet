@@ -21,18 +21,22 @@
                         @endforeach
                         <div class="row form-group">
                             <label for="vacina" class="col-md-1 col-form-label text-md-right">Vacina:</label>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <select name="vacina" id="vacina" class="form-control">
                                     <option value="0" selected>Selecione uma opção...</option>
                                     @foreach($vacinas as $vacina)
-                                    <option value="{{ $vacina->id }}">{{$vacina->name}} / Lote: {{$vacina->lote}}</option>
+                                    <option value="{{ $vacina->id }}">Nome: {{$vacina->name}} - Lote: {{$vacina->lote}} - Validade: {{ date('d/m/Y', strtotime($vacina->dataValidade)) }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <label for="veterinario" class="col-md-2 col-form-label text-md-right">Veterinário:</label>
-                            <div class="col-md-5">    
+                            <label for="veterinario" class="col-md-1 col-form-label text-md-right">Veterinário:</label>
+                            <div class="col-md-3">    
                                 <input type="hidden" id="veterinario" class="form-control" name="veterinario" required value="{{Auth::user()->id}}">
                                 <input type="text" id="" class="form-control" name="" required readonly value="{{Auth::user()->name}}">
+                            </div>
+                            <label for="poxAplicacao" class="col-md-1 col-form-label text-md-right">Proxima Aplicação:</label>
+                            <div class="col-md-3">    
+                                <input type="date" id="proxAplicacao" class="form-control" name="proxAplicacao">
                             </div>
                         </div>
                         <br>

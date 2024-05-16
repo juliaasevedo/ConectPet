@@ -38,8 +38,22 @@
                                 @enderror
                             </div>
                         </div>
-                  
-
+                        <div class="row mb-3">
+                            <label for="level" class="col-md-4 col-form-label text-md-end">{{ __('Tipo de acesso') }}</label>
+                            <div class="col-md-6">
+                                <select name="level" id="level" class="form-control" required>
+                                    <option value="" selected>Selecione o tipo de acesso...</option>
+                                    <option value="1">Proprietário de pet</option>
+                                    <option value="2">Veterinário</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="crmv" class="col-md-4 col-form-label text-md-end">{{ __('CRMV') }}</label>
+                            <div class="col-md-6">
+                                <input id="crmv" type="text" class="form-control" name="crmv" placeholder="Preencha somente se for veterinário">
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -75,4 +89,24 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const levelSelect = document.getElementById('level');
+        const crmvInput = document.getElementById('crmv');
+
+        function toggleCrmvRequirement() {
+            if (levelSelect.value == '2') {
+                crmvInput.setAttribute('required', 'required');
+            } else {
+                crmvInput.removeAttribute('required');
+            }
+        }
+
+        // Initial check in case the select box is already set to Veterinário
+        toggleCrmvRequirement();
+
+        // Add event listener to check changes in the select box
+        levelSelect.addEventListener('change', toggleCrmvRequirement);
+    });
+</script>
 @endsection

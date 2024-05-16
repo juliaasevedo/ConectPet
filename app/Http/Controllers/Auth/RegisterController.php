@@ -63,11 +63,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if (empty($data['crmv'])) {         
+            $data['crmv'] = '0';  
+        }
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'level' => 0,
-            'crmv' => 0,
+            'level' => $data['level'],
+            'crmv' => $data['crmv'],
             'password' => Hash::make($data['password']),
         ]);
 

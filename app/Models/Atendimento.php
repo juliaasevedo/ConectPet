@@ -12,5 +12,7 @@ class Atendimento extends Model
         'pet',
         'vacina',
         'veterinario',
+        'proxAplicacao',
+        
     ];
 }

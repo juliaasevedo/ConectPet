@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('level', 2)->nullabel();
-            $table->string('crmv', 7)->nullabel();
+            $table->string('level', 2)->nullable();
+            $table->string('crmv', 7)->nullable();
         });
     }
 

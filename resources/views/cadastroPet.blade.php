@@ -16,7 +16,8 @@
                             </div>
                             <label for="proprietario" class="col-md-2 col-form-label text-md-right">Proprietário:</label>
                             <div class="col-md-4">    
-                                <input type="text" id="proprietario" class="form-control" name="proprietario" required value= "{{ Auth::user()->id }}">
+                                <input type="hidden" id="proprietario" class="form-control" name="proprietario" required value= "{{ Auth::user()->id }}">
+                                <input type="text" id="" class="form-control" name="" required readonly value= "{{ Auth::user()->name }}">
                             </div>
                         </div>
                         <br>
@@ -35,7 +36,15 @@
                             </div>
                             <label for="vet" class="col-md-2 col-form-label text-md-right">Veterinário:</label>
                             <div class="col-md-3">
-                                <input type="text" id="vet" class="form-control" name="vet" required value= "{{ Auth::user()->id }}">
+                                <select name="vet" id="vet" class="form-control">
+                                    @foreach($pessoas as $pessoa)
+                                    @if($pessoa->level == 2)
+                                    <option value="" selected>Selecione o veterinário...</option>
+                                    <option value="{{$pessoa->id}}">{{$pessoa->name}}</option>
+                                    @endif
+                                    @endforeach
+
+                                </select>
                             </div>
                         </div>
                         <br>

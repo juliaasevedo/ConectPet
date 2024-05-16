@@ -4,9 +4,11 @@
 <div class="container">
     <div class="row">
     <div class="col-md-6"></div>
+    @if(Auth::user()->level == 1)
     <div class="col-md-6">
        <a class="btn btn-primary" href="{{ url('/cadastro_pet') }}" role="button">Cadastrar Pet</a>
     </div>
+    @endif
     </div>
     <br>
     <div class="row justify-content-center">
@@ -24,7 +26,11 @@
                                 <th class="col-md-2">Veterinário</th>
                                 <th class="col-md-2">Proprietário</th>
                                 <th class="col-md-1">Cartão de vacinas</th>
+                                @if(Auth::user()->level == 2)
                                 <th class="col-md-2">Registrar Vacina</th>
+                                @else
+                                <th class="col-md-2">Editar</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -48,10 +54,15 @@
                                 <td class="col-md-1 text-center">
                                 <a class="btn btn-success btn-sm " href="{{ url('/cartao/vacina', $pet->id) }}"><i class="fa fa-eye"></i></a>
                                 </td>
+                                @if(Auth::user()->level == 2)
                                 <td class="col-md-2 text-center">
                                 <a class="btn btn-success btn-sm " href="{{ url('/vacina/registro', $pet->id) }}"><i class="fa fa-plus"></i></a>
                                 </td>
-                             
+                                @else
+                                <td class="col-md-2 text-center">
+                                <a class="btn btn-success btn-sm " href="{{ url('/edit/pet', $pet->id) }}"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

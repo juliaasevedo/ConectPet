@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vacinas', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('dose');
-            $table->string('lote')->unique();
-            $table->timestamps();
+        Schema::table('atendimentos', function (Blueprint $table) {
+            $table->date('proxAplicacao')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vacinas');
+        Schema::table('atendimentos', function (Blueprint $table) {
+            $table->dropcolumn('proxAplicacao');
+    });
     }
 };

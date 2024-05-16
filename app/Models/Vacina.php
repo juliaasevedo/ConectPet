@@ -12,5 +12,6 @@ class Vacina extends Model
         'name',
         'dose',
         'lote',
+        'dataValidade',
     ];
 }
