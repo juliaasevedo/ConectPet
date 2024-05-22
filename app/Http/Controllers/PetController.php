@@ -16,6 +16,7 @@ class PetController extends Controller
     {
         $pets = pet::orderBy('id')->get();
         $pessoas = User::orderBy('id')->get();
+        //dd($pessoas);
         return view('pets', compact('pets', 'pessoas'));
     }
     public function cadastroPet()
@@ -57,25 +58,27 @@ class PetController extends Controller
         $vacinas = Vacina::whereIn('id', $vacinaIds)->get();
         $propIds = $pet->pluck('proprietario')->toArray();
         $proprietarios = User::whereIn('id', $propIds)->get();
+        $pessoas = User::orderBy('id')->get();
         //dd($vacinasAplicadas, $veterinarios, $vacinas);
         //dd($pet);
-        return view('editPet', compact('pet', 'vacinas', 'veterinarios', 'vacinasAplicadas', 'proprietarios'));
+        return view('editPet', compact('pet', 'vacinas', 'veterinarios', 'vacinasAplicadas', 'proprietarios', 'pessoas'));
     }
-    public function updatePet(Request $request, pet $id)
+    public function updatePet(Request $request, Pet $pet)
     {
-        $id->name = request('name');
-        $id->tipo = request('tipo');
-        $id->raca = request('raca');
-
-        try{
-            $id->save();
-        }catch (QueryException $e) {
+        $pet->name = $request->input('name');
+        $pet->tipo = $request->input('tipo');
+        $pet->raca = $request->input('raca');
+        $pet->veterinario = $request->input('vet');
+    
+        try {
+            $pet->save();
+        } catch (QueryException $e) {
             session()->flash('mensagem-erro', 'Erro ao salvar o registro.');
             return redirect()->back();
         }
-
+    
         session()->flash('mensagem-sucesso', 'Dados inseridos com sucesso!');
-
         return redirect()->back();
     }
+    
 }

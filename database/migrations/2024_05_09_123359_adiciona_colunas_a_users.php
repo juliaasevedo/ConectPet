@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('level', 2)->nullable();
-            $table->string('crmv', 7)->nullable();
+            $table->string('crmv', 7)->nullable()->unique();
         });
     }
 

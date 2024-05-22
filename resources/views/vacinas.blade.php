@@ -4,9 +4,11 @@
 <div class="container">
     <div class="row">
     <div class="col-md-6"></div>
+    @if(Auth::user()->level == 2)
     <div class="col-md-6">
        <a class="btn btn-primary" href="{{ url('/cadastro_vacina') }}" role="button">Cadastrar Vacina</a>
     </div>
+    @endif
     </div>
     <br>
     <div class="row justify-content-center">
@@ -21,7 +23,7 @@
                                 <th class="col-md-3">Nome</th>
                                 <th class="col-md-3">Dose</th>
                                 <th class="col-md-3">Lote</th>
-                                <th class="col-md-3">Cadastro</th>
+                                <th class="col-md-3">Data de Validade</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,7 +32,7 @@
                                 <td class="col-md-3">{{$vacina->name}}</td>
                                 <td class="col-md-3">{{$vacina->dose}}</td>
                                 <td class="col-md-3">{{$vacina->lote}}</td>
-                                <td class="col-md-3">{{$vacina->created_at->format('d/m/Y')}}</td>                             
+                                <td class="col-md-3">{{}}</td>                             
                             </tr>
                             @endforeach
                         </tbody>

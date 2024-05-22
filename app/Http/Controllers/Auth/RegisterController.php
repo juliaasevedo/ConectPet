@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
@@ -52,6 +54,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'level' => ['required', 'string'],         
+            'crmv' => ['nullable', 'string', 'unique:users'],
         ]);
     }
 
@@ -63,16 +67,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if (empty($data['crmv'])) {         
-            $data['crmv'] = '0';  
+        if (User::where('crmv', $data['crmv'])->exists()) {
+            session()->flash('mensagem-erro', 'Já existe um usuário com o mesmo CRMV.');
+            
         }
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'level' => $data['level'],
-            'crmv' => $data['crmv'],
-            'password' => Hash::make($data['password']),
-        ]);
+        try {
+            $user = User::create([
+            'name' => $data['name'],             
+            'email' => $data['email'],             
+            'level' => $data['level'],             
+            'crmv' => $data['crmv'],             
+            'password' => Hash::make($data['password']),]);
 
+            session()->flash('mensagem-sucesso', 'Dados inseridos com sucesso!');
+            return $user;
+        } catch (QueryException $e) {
+            session()->flash('mensagem-erro', 'Erro ao salvar o registro.');
+           
+        }
     }
 }

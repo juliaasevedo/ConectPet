@@ -37,10 +37,10 @@
                             <label for="vet" class="col-md-2 col-form-label text-md-right">Veterinário:</label>
                             <div class="col-md-3">
                                 <select name="vet" id="vet" class="form-control">
+                                    <option value="" selected>Selecione o veterinário...</option>
                                     @foreach($pessoas as $pessoa)
                                     @if($pessoa->level == 2)
-                                    <option value="" selected>Selecione o veterinário...</option>
-                                    <option value="{{$pessoa->id}}">{{$pessoa->name}}</option>
+                                    <option value="{{$pessoa->id}}">{{$pessoa->name}} / crmv: {{$pessoa->crmv}}</option>
                                     @endif
                                     @endforeach
 

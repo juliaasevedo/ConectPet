@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/edit/pet/{pet}', [App\Http\Controllers\PetController::class, 'editPet']);
 
-    Route::post('/edit/pet/save/{pet}', [App\Http\Controllers\PetController::class, 'updatePet']);
+    Route::post('/edit/pet/save/{pet}', [App\Http\Controllers\PetController::class, 'updatePet'])->name('edit.pet.save');
 
     
 

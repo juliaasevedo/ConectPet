@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Editar informação de {{$pet[0]->name}}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ url('/edit/pet/save', $pet->id) }}">
+                    <form method="POST" action="{{ route('edit.pet.save', ['pet' => $pet[0]->id]) }}">
                         @csrf
                         @foreach($pet as $pet)
                         <div class="row form-group">
@@ -31,6 +31,20 @@
                                 <input type="text" id="proprietario" class="form-control" name="proprietario" required readonly value="{{$proprietarios[0]->name}}">
                             </div>
                         </div>
+                        <div class="row form-group">
+                            <label for="vet" class="col-md-1 col-form-label text-md-right">Veterinário:</label>
+                            <div class="col-md-2">
+                            <select name="vet" id="vet" class="form-control">
+                                <option value="" selected>Selecione o veterinário...</option>
+                                    @foreach($pessoas as $pessoa)
+                                    @if($pessoa->level == 2)
+                                    <option value="{{$pessoa->id}}">{{$pessoa->name}} / crmv: {{$pessoa->crmv}}</option>
+                                    @endif
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>        
                         @endforeach
                         <br>
                         <div class="row form-group">

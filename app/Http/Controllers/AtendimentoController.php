@@ -8,6 +8,7 @@ use App\Models\Vacina;
 use App\Models\Atendimento;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Database\QueryException;
 
 class AtendimentoController extends Controller
 {

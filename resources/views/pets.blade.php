@@ -12,29 +12,30 @@
     </div>
     <br>
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-xl-auto" id="">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Meus Pets') }}</div>
                 
                 <div class="card-body"> 
                     <table class="table text-center" id="tabela">
                         <thead>
                             <tr>
-                                <th class="col-md-2">Nome</th>
+                                <th class="col-md-1">Nome</th>
                                 <th class="col-md-1">Tipo</th>
-                                <th class="col-md-2">Raça:</th>
-                                <th class="col-md-2">Veterinário</th>
-                                <th class="col-md-2">Proprietário</th>
-                                <th class="col-md-1">Cartão de vacinas</th>
+                                <th class="col-md-1">Raça:</th>
+                                <th class="col-md-1">Veterinário</th>
+                                <th class="col-md-1">Proprietário</th>
+                                <th class="col-md-2">Cartão de vacinas</th>
                                 @if(Auth::user()->level == 2)
-                                <th class="col-md-2">Registrar Vacina</th>
+                                <th class="col-md-5">Registrar Vacina</th>
                                 @else
-                                <th class="col-md-2">Editar</th>
+                                <th class="col-md-1">Editar</th>
                                 @endif
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($pets as $pet)
+                            @if(Auth::user()->id == $pet->proprietario || Auth::user()->id == $pet->veterinario)
                             <tr>
                                 <td class="col-md-2">{{$pet->name}}</td>
                                 @if ($pet->tipo == 1)
@@ -48,6 +49,10 @@
                                 @foreach ($pessoas as $pessoa)
                                 @if($pessoa->id == $pet->veterinario)
                                 <td class="col-md-2">{{$pessoa->name}}</td>
+                                @endif
+                                @endforeach
+                                @foreach ($pessoas as $pessoa)
+                                @if($pessoa->id == $pet->proprietario)
                                 <td class="col-md-2">{{$pessoa->name}}</td>
                                 @endif
                                 @endforeach
@@ -55,7 +60,7 @@
                                 <a class="btn btn-success btn-sm " href="{{ url('/cartao/vacina', $pet->id) }}"><i class="fa fa-eye"></i></a>
                                 </td>
                                 @if(Auth::user()->level == 2)
-                                <td class="col-md-2 text-center">
+                                <td class="col-md-5 text-center">
                                 <a class="btn btn-success btn-sm " href="{{ url('/vacina/registro', $pet->id) }}"><i class="fa fa-plus"></i></a>
                                 </td>
                                 @else
@@ -64,6 +69,7 @@
                                 </td>
                                 @endif
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
