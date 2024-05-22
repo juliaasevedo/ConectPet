@@ -12,7 +12,7 @@
     </div>
     <br>
     <div class="row justify-content-center">
-        <div class="col-xl-auto" id="">
+        <div class="col-xl-auto" id="tabelapets">
             <div class="card">
                 <div class="card-header">{{ __('Meus Pets') }}</div>
                 
