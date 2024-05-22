@@ -32,7 +32,7 @@
                                 <td class="col-md-3">{{$vacina->name}}</td>
                                 <td class="col-md-3">{{$vacina->dose}}</td>
                                 <td class="col-md-3">{{$vacina->lote}}</td>
-                                <td class="col-md-3">{{}}</td>                             
+                                <td class="col-md-3">{{ date('d/m/Y', strtotime($vacina->dataValidade))}}</td>                             
                             </tr>
                             @endforeach
                         </tbody>
