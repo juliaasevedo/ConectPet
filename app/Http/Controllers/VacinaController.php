@@ -41,6 +41,6 @@ class VacinaController extends Controller
         return redirect()->back();
       }
       session()->flash('mensagem-sucesso', 'Dados inseridos com sucesso!');
-      return redirect()->back();
+      return redirect()->route('vacinas');
     }
 }

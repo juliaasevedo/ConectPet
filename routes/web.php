@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/vacina/save', [App\Http\Controllers\VacinaController::class, 'store']);
 
-    Route::get('/vacinas', [App\Http\Controllers\VacinaController::class, 'index']);
+    Route::get('/vacinas', [App\Http\Controllers\VacinaController::class, 'index'])->name('vacinas');
 
     Route::get('/vacina/registro/{pet}', [App\Http\Controllers\AtendimentoController::class, 'index']);
 

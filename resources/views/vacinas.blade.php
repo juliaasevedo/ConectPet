@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8" id="tabelapets">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Vacinas') }}</div>
                 
                 <div class="card-body"> 
                     <table class="table text-center" id="tabela">
@@ -44,7 +44,36 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#tabela').DataTable();
+        // Inicializar a tabela #tabela, independentemente
+        if ($.fn.dataTable.isDataTable('#tabela')) {
+            table = $('#tabela').DataTable();
+        } else {
+            // Se ainda não foi inicializada, configurar DataTable para #tabela
+            table = $('#tabela').DataTable({
+                "language": {
+                    processing: "Processando...",
+                    search: "Pesquisar&nbsp;:",
+                    lengthMenu: "Mostrar _MENU_ itens",
+                    info: "Exibindo _START_ a _END_ item em _TOTAL_ itens",
+                    infoEmpty: "Exibindo item de 0 a 0 de 0 itens",
+                    infoFiltered: "(filtrado por _MAX_ itens no total)",
+                    infoPostFix: "",
+                    loadingRecords: "Carregando...",
+                    zeroRecords: "Nenhum item para exibir",
+                    emptyTable: "Nenhum dado disponível na tabela",
+                    paginate: {
+                        first: "Primeiro",
+                        previous: "Anterior",
+                        next: "Próximo",
+                        last: "Último"
+                    },
+                    aria: {
+                        sortAscending: ": habilita a ordenação da coluna em ordem crescente",
+                        sortDescending: ": habilita a ordenação da coluna em ordem decrescente"
+                    }
+                }
+            });
+        }
  
     });
 </script>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-xl-auto" id="tabelapets">
             <div class="card">
                 <div class="card-header">Cartão de vacina de {{$pet[0]->name}}</div>
                 <div class="card-body">
@@ -40,47 +40,47 @@
 
 
                         <div class="row form-group">
-                            <label for="vacina" class="col-md-2 col-form-label text-md-right">Vacina:</label>
-                            <div class="col-md-2">
-                                @foreach($vacinas as $vacina)    
+                            <label for="vacina" class="col-md-1 col-form-label text-md-right">Vacina:</label>
+                            <div class="col-md-3">
+                                @foreach($vacinas as $vacina)
                                 @if($vacinaAplicada->vacina == $vacina->id)
                                 <input type="text" id="vacina" class="form-control" name="vacina" required value="{{$vacina->name}}">
-                            @endif  
-                            @endforeach  
+                                @endif
+                                @endforeach
                             </div>
-                            <label for="dose" class="col-md-2 col-form-label text-md-right">Dose:</label>
-                            <div class="col-md-2">
-                                @foreach($vacinas as $vacina)    
+                            <label for="dose" class="col-md-1 col-form-label text-md-right">Dose:</label>
+                            <div class="col-md-3">
+                                @foreach($vacinas as $vacina)
                                 @if($vacinaAplicada->vacina == $vacina->id)
                                 <input type="text" id="dose" class="form-control" name="dose" required value="{{$vacina->dose}}">
-                            @endif  
-                            @endforeach 
+                                @endif
+                                @endforeach
                             </div>
-                            <label for="lote" class="col-md-2 col-form-label text-md-right">Lote::</label>
-                            <div class="col-md-2">
-                            @foreach($vacinas as $vacina)    
-                            @if($vacinaAplicada->vacina == $vacina->id)
+                            <label for="lote" class="col-md-1 col-form-label text-md-right">Lote::</label>
+                            <div class="col-md-3">
+                                @foreach($vacinas as $vacina)
+                                @if($vacinaAplicada->vacina == $vacina->id)
                                 <input type="text" id="lote" class="form-control" name="lote" required value="{{$vacina->lote}}">
-                            @endif  
-                            @endforeach 
+                                @endif
+                                @endforeach
                             </div>
                         </div>
                         <br>
                         <div class="row form-group">
-                            <label for="veterinario" class="col-md-2 col-form-label text-md-right">Veterinário:</label>
-                            <div class="col-md-1">
+                            <label for="veterinario" class="col-md-1 col-form-label text-md-right">Veterinário:</label>
+                            <div class="col-md-2">
                                 <input type="text" id="veterinário" class="form-control" name="veterinário" required value="{{$veterinario->name}}">
                             </div>
-                            <label for="crmv" class="col-md-2 col-form-label text-md-right">CRMV::</label>
-                            <div class="col-md-1">
+                            <label for="crmv" class="col-md-1 col-form-label text-md-right">CRMV::</label>
+                            <div class="col-md-2">
                                 <input type="text" id="crmv" class="form-control" name="crmv" required value="{{$veterinario->crmv}}">
                             </div>
-                            <label for="dataAplicacao" class="col-md-2 col-form-label text-md-right">Data de Aplicação:</label>
-                            <div class="col-md-1">
+                            <label for="dataAplicacao" class="col-md-1 col-form-label text-md-right">Data de Aplicação:</label>
+                            <div class="col-md-2">
                                 <input type="text" id="dataAplicacao" class="form-control" name="dataAplicacao" required value="{{$vacinaAplicada->created_at->format('d/m/Y')}}">
                             </div>
-                            <label for="proxAplicacao" class="col-md-2 col-form-label text-md-right">Próxima Aplicação:</label>
-                            <div class="col-md-1">
+                            <label for="proxAplicacao" class="col-md-1 col-form-label text-md-right">Próxima Aplicação:</label>
+                            <div class="col-md-2">
                                 <input type="text" id="proxAplicacao" class="form-control" name="proxAplicacao" required value="{{ date('d/m/Y', strtotime($vacinaAplicada->proxAplicacao)) }}">
                             </div>
                         </div>
