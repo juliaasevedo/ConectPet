@@ -21,10 +21,10 @@
                     <table class="table text-center" id="tabela">
                         <thead>
                             <tr>
-                                <th class="col-md-3">Nome</th>
-                                <th class="col-md-3">Dose</th>
-                                <th class="col-md-3">Lote</th>
-                                <th class="col-md-3">Data de Validade</th>
+                                <th class="col-md-3 text-center">Nome</th>
+                                <th class="col-md-3 text-center">Dose</th>
+                                <th class="col-md-3 text-center">Lote</th>
+                                <th class="col-md-3 text-center">Data de Validade</th>
                             </tr>
                         </thead>
                         <tbody>

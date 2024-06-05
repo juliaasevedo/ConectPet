@@ -17,22 +17,22 @@
     <div class="row justify-content-center">
         <div class="col-xl-auto" id="tabelapets">
             <div class="card">
-                <div class="card-header">{{ __('Meus Pets') }}</div>
+                <div class="card-header ">{{ __('Meus Pets') }}</div>
 
-                <div class="card-body">
+                <div class="card-body ">
                     <table class="table text-center" id="tabela">
                         <thead>
                             <tr>
-                                <th class="col-md-1">Nome</th>
-                                <th class="col-md-1">Tipo</th>
-                                <th class="col-md-1">Raça:</th>
-                                <th class="col-md-1">Veterinário</th>
-                                <th class="col-md-1">Proprietário</th>
-                                <th class="col-md-2">Cartão de vacinas</th>
+                                <th class="col-md-1 text-center">Nome</th>
+                                <th class="col-md-1 text-center">Tipo</th>
+                                <th class="col-md-1 text-center">Raça:</th>
+                                <th class="col-md-1 text-center">Veterinário</th>
+                                <th class="col-md-1 text-center">Proprietário</th>
+                                <th class="col-md-2 text-center">Cartão de vacinas</th>
                                 @if(Auth::user()->level == 2)
-                                <th class="col-md-5">Registrar Vacina</th>
+                                <th class="col-md-5 text-center">Registrar Vacina</th>
                                 @else
-                                <th class="col-md-1" text-center>Editar</th>
+                                <th class="col-md-1 text-center" text-center>Editar Pet</th>
                                 @endif
                             </tr>
                         </thead>
@@ -67,7 +67,7 @@
                                     <a class="btn btn-success btn-sm " href="{{ url('/vacina/registro', $pet->id) }}"><i class="fa fa-plus"></i></a>
                                 </td>
                                 @else
-                                <td class="col-md-2">
+                                <td class="col-md-2 text-center">
                                     <a class="btn btn-success btn-sm " href="{{ url('/edit/pet', $pet->id) }}"><i class="fa fa-pencil"></i></a>
                                 </td>
                                 @endif
