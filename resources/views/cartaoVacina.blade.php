@@ -88,11 +88,7 @@
                         @endforeach
                         <br>
                         <br>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <button class="btn btn-success" type="submit">Salvar</button>
-                            </div>
-                        </div>
+                        
                     </form>
                 </div>
             </div>

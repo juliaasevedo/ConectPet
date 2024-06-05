@@ -63,31 +63,25 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Lembre-me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="row form-group">
-                                <label for="" class="col-md-12 col-form-label text-md-right"><span style="color: red;">*Campos obrigatórios</span></label>
+                                <div class="col-md-4">
+                                </div>
+                                <label for="" class="col-md-8 col-form-label text-md-right"><span style="color: red;">*Campos obrigatórios</span></label>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <button type="submit" class="btn btn-primary">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-success btn-primary">
                                         {{ __('Login') }}
                                     </button>
                                 </div>
-                                <div class="col-md-6">
-                                    <a href="{{ url('/register') }}" class="btn btn-primary">
+                                <div class="col-md-4">
+                                    <a href="{{ url('/register') }}" class="btn btn-success btn-primary offset-md-2">
                                         {{ __('Cadastrar Usuário') }}
                                     </a>
-
+                                    <div class="col-md-1">
+                                    </div>
                                 </div>
                             </div>
                         </form>

@@ -44,8 +44,14 @@
                             <label for="" class="col-md-12 col-form-label text-md-right"><span style="color: red;">*Campos obrigatórios</span></label>
                         </div>
                         <div class="row form-group">
-                            <div class="col-md-12">
+                            <div class="col-md-5">
+
+                            </div>
+                            <div class="col-md-2">
                                 <button class="btn btn-success" type="submit">Salvar</button>
+                            </div>
+                            <div class="col-md-5">
+
                             </div>
                         </div>
                     </form>

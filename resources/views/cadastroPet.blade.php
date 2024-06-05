@@ -49,13 +49,18 @@
                         </div>
                         <br>
                         <div class="row form-group">
+
+
                             <label for="" class="col-md-12 col-form-label text-md-right"><span style="color: red;">*Campos obrigatórios</span></label>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
+
+                            </div>
+                            <div class="col-md-2">
                                 <button class="btn btn-success btn-secundary btn-block shadow-sm" type="submit">Salvar</button>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
 
                             </div>
                         </div>

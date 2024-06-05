@@ -3,12 +3,15 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-6"></div>
+        <div class="col-md-5"></div>
         @if(Auth::user()->level == 1)
-        <div class="col-md-6">
-            <a class="btn btn-primary" href="{{ url('/cadastro_pet') }}" role="button">Cadastrar Pet</a>
+        <div class="col-md-2 ">
+            <a class="btn btn-success btn-primary" href="{{ url('/cadastro_pet') }}" role="button">Cadastrar Pet</a>
         </div>
         @endif
+        <div class="col-md-5">
+
+        </div>
     </div>
     <br>
     <div class="row justify-content-center">
@@ -29,7 +32,7 @@
                                 @if(Auth::user()->level == 2)
                                 <th class="col-md-5">Registrar Vacina</th>
                                 @else
-                                <th class="col-md-1"text-center>Editar</th>
+                                <th class="col-md-1" text-center>Editar</th>
                                 @endif
                             </tr>
                         </thead>
