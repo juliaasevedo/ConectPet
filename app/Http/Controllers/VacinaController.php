@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vacina;
 use Carbon\Carbon;
+use Illuminate\Database\QueryException;
+
 
 class VacinaController extends Controller
 {

@@ -46,23 +46,19 @@
 
                                 </select>
                             </div>
-                        </div>
-                        <br>
-                        <div class="row form-group">
-
-
                             <label for="" class="col-md-12 col-form-label text-md-right"><span style="color: red;">*Campos obrigatórios</span></label>
                         </div>
+                        <br>
+
+
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-9">
 
                             </div>
-                            <div class="col-md-2">
-                                <button class="btn btn-success btn-secundary btn-block shadow-sm" type="submit">Salvar</button>
+                            <div class="col-md-3">
+                                <button class="btn btn-success btn-secundary w-100 shadow-sm" type="submit">Salvar</button>
                             </div>
-                            <div class="col-md-5">
-
-                            </div>
+                            
                         </div>
                     </form>
                 </div>

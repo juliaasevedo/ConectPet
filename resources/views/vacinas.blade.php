@@ -3,10 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-5"></div>
+        <div class="col-md-8"></div>
         @if(Auth::user()->level == 2)
-        <div class="col-md-2">
-            <a class="btn btn-success btn-primary" href="{{ url('/cadastro_vacina') }}" role="button">Cadastrar Vacina</a>
+        <div class="col-md-4">
+            <a class="btn btn-success w-100" href="{{ url('/cadastro_vacina') }}" role="button">Cadastrar Vacina</a>
         </div>
         @endif
         <div class="col-md-5"></div>

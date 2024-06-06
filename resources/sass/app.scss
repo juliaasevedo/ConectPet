@@ -46,7 +46,47 @@
 #login{
   padding-top: 12%;
 }
+#home{
+  position: fixed; /* Para manter o quadrado sempre visível na tela */
+  top: 50%; /* Posiciona o quadrado no meio verticalmente */
+  left: 50%; /* Posiciona o quadrado no meio horizontalmente */
+  transform: translate(-50%, -50%); /* Centraliza o quadrado */
+  width: 100%; /* Largura do quadrado */
+  padding: 20px; /* Espaçamento interno */
+  background: linear-gradient(to right, #4CAF50, #77D0A2); /* Degradê de cores */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  text-align: center; /* Alinhamento do texto */
+  color: #fff; /* Cor do texto */
+  font-family: Arial, sans-serif; /* Fonte do texto */  height: 80vh;
+}
+#home h1{
+  font-size: 74px; /* Tamanho da fonte do título */
+  margin-bottom: 10px; /* Espaçamento abaixo do título */
+  color: #000000;
+}
+#home p{
+  font-size: 20px; /* Tamanho da fonte do slogan */
+  margin-bottom: 0; /* Removendo o espaçamento abaixo do slogan */
+  color: #000000;
 
+}
+#mensagem_home{
+  padding-top: 150px;
+}
+#rodape {
+    margin-top: 80px; /* Espaçamento acima do rodapé */
+}
+
+#rodape img {
+    width: 500px; /* Largura da imagem */
+    height: auto; /* Altura automática proporcional à largura */
+    border-radius: 5px; /* Bordas arredondadas para a imagem */
+}
+
+.card-header{
+  text-align: center;
+}
 .card {
   backdrop-filter: blur(25px) saturate(200%) !important;
   -webkit-backdrop-filter: blur(25px) saturate(200%) !important;

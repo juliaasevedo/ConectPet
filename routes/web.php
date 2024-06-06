@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::group(['middleware' => 'auth'], function(){
 
-    Route::get('/', function () {
-        return view('home');
-    });
+    
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -49,9 +48,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/edit/pet/save/{pet}', [App\Http\Controllers\PetController::class, 'updatePet'])->name('edit.pet.save');
 
+    Route::get('/user/edit', [App\Http\Controllers\HomeController::class, 'edit'])->name('user.edit');
     
-
-    
+    Route::post('/{user}/update', [App\Http\Controllers\HomeController::class, 'update'])->name('user.update');
 
 
 

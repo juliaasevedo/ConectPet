@@ -61,34 +61,30 @@
                                     </span>
                                     @enderror
                                 </div>
-                            </div>
-
-                            <div class="row form-group">
                                 <div class="col-md-4">
                                 </div>
                                 <label for="" class="col-md-8 col-form-label text-md-right"><span style="color: red;">*Campos obrigatórios</span></label>
                             </div>
+
+
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                 </div>
-                                <div class="col-md-3">
-                                    <button type="submit" class="btn btn-success btn-primary">
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-success btn-primary w-100">
                                         {{ __('Login') }}
                                     </button>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="{{ url('/register') }}" class="btn btn-success btn-primary offset-md-2">
+                                <a href="{{ url('/register') }}" class="btn btn-success btn-primary w-100 ">
                                         {{ __('Cadastrar Usuário') }}
                                     </a>
-                                    <div class="col-md-1">
-                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                        <br>
-                        <div class="row ">
-
+                                <div class="col-md-2">
+                                </div>
+                            </form>
                         </div>
+                        <br>
                     </div>
                 </div>
             </div>

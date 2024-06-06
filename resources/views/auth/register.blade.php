@@ -74,21 +74,23 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
-                        </div>
-                        <div class="row form-group">
                             <div class="col-md-4">
                             </div>
                             <label for="" class="col-md-8 col-form-label text-md-right"><span style="color: red;">*Campos obrigatórios</span></label>
                         </div>
+                        </div>
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-3">
                             </div>
-                            <div class="col-md-2">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Cadastrar') }}
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-success w-100">
+                                    Cadastrar
                                 </button>
                             </div>
+                            <div class="col-md-3">
+                            </div>
                         </div>
+                        <br>
                     </form>
                 </div>
             </div>

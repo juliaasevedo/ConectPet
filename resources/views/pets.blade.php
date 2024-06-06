@@ -3,15 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-5"></div>
+        <div class="col-md-10"></div>
         @if(Auth::user()->level == 1)
-        <div class="col-md-2 ">
-            <a class="btn btn-success btn-primary" href="{{ url('/cadastro_pet') }}" role="button">Cadastrar Pet</a>
+        <div class="col-md-2">
+            <a class="btn btn-success btn-primary w-100" href="{{ url('/cadastro_pet') }}" role="button">Cadastrar Novo Pet</a>
         </div>
         @endif
-        <div class="col-md-5">
-
-        </div>
     </div>
     <br>
     <div class="row justify-content-center">
@@ -60,15 +57,15 @@
                                 @endif
                                 @endforeach
                                 <td class="col-md-1 text-center">
-                                    <a class="btn btn-success btn-sm " href="{{ url('/cartao/vacina', $pet->id) }}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-success btn-sm w-100" href="{{ url('/cartao/vacina', $pet->id) }}"><i class="fa fa-eye"></i></a>
                                 </td>
                                 @if(Auth::user()->level == 2)
                                 <td class="col-md-5 text-center">
-                                    <a class="btn btn-success btn-sm " href="{{ url('/vacina/registro', $pet->id) }}"><i class="fa fa-plus"></i></a>
+                                    <a class="btn btn-success btn-sm w-100 " href="{{ url('/vacina/registro', $pet->id) }}"><i class="fa fa-plus"></i></a>
                                 </td>
                                 @else
                                 <td class="col-md-2 text-center">
-                                    <a class="btn btn-success btn-sm " href="{{ url('/edit/pet', $pet->id) }}"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-success btn-sm w-100" href="{{ url('/edit/pet', $pet->id) }}"><i class="fa fa-pencil"></i></a>
                                 </td>
                                 @endif
                             </tr>
