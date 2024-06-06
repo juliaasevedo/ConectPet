@@ -24,8 +24,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
-    <div class="container" id="fundo">
+<body id="fundo">
+    <div class="container" id="login">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card" id="cardLogin">
