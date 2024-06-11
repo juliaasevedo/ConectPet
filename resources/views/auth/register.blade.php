@@ -51,7 +51,7 @@
                         <div class="row mb-3" id="crmv-field">
                             <label for="crmv" class="col-md-4 col-form-label text-md-end">CRMV<span style="color: red;">*</span></label></label>
                             <div class="col-md-6">
-                                <input id="crmv" type="text" class="form-control" name="crmv" placeholder="Preencha somente se for veterinário">
+                                <input id="crmv" type="text" class="form-control" name="crmv" placeholder="Preencha somente se for veterinário" pattern="^\d{0,7}$" title="O CRMV deve conter no máximo 7 digitos.">
                             </div>
                         </div>
                         <div class="row mb-3">

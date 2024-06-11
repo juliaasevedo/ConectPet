@@ -13,7 +13,7 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #ffdc73;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
@@ -26,7 +26,7 @@
 }
 
 .navbar {
-  background-color: #B2BF84 !important;
+  background-color: #f4a942 !important;
 }
 
 #tabelapets {
@@ -37,7 +37,8 @@
   width: auto;
   height: 100vh;
   background-size: cover;
-  background-color: #CDD9BA;
+  //background-color: #FAAE57;
+  background: #ffdc73; 
   background-size: 100%;
   opacity: 1.97;
   background-repeat: no-repeat;
@@ -53,15 +54,15 @@
   transform: translate(-50%, -50%); /* Centraliza o quadrado */
   width: 100%; /* Largura do quadrado */
   padding: 20px; /* Espaçamento interno */
-  background: linear-gradient(to right, #4CAF50, #77D0A2); /* Degradê de cores */
+  background: #f4a942; 
   border-radius: 10px; /* Bordas arredondadas */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
   text-align: center; /* Alinhamento do texto */
-  color: #fff; /* Cor do texto */
-  font-family: Arial, sans-serif; /* Fonte do texto */  height: 80vh;
+  color: #000000; /* Cor do texto */
+  font-family: Georgia, serif; /* Fonte do texto */  height: 80vh;
 }
 #home h1{
-  font-size: 74px; /* Tamanho da fonte do título */
+  font-size: 75px; /* Tamanho da fonte do título */
   margin-bottom: 10px; /* Espaçamento abaixo do título */
   color: #000000;
 }
@@ -72,7 +73,10 @@
 
 }
 #mensagem_home{
-  padding-top: 150px;
+  padding-top: 110px;
+}
+#mensagem_home h2{
+  padding-bottom: 50px;
 }
 #rodape {
     margin-top: 80px; /* Espaçamento acima do rodapé */
@@ -83,22 +87,37 @@
     height: auto; /* Altura automática proporcional à largura */
     border-radius: 5px; /* Bordas arredondadas para a imagem */
 }
-
+#vacinaInfo h5{
+  font-weight: bold;
+  margin: 0;
+}
+#vacinaInfo p{
+  margin: 0;
+  padding-left: 5px;
+}
+#vacinaInfo .col-md-2{
+  display: flex;
+  align-items: center;
+}
+#vacinaInfo .col-md-2 h5{
+  margin-right: 5px;
+}
 .card-header{
   text-align: center;
 }
 .card {
   backdrop-filter: blur(25px) saturate(200%) !important;
   -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
-  background-color: rgba(255, 255, 255, 0.51) !important;
+  //background-color: rgba(255, 255, 255, 0.51) !important;
   border-radius: 12px !important;
   border: 1px solid rgba(209, 213, 219, 0.3) !important;
+  background: #f4a942;
 }
 
 .card-modal {
   backdrop-filter: blur(10px) saturate(100%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(100%) !important;
-  background-color: rgba(255, 255, 255, 0.90) !important;
+  background-color: rgb(255, 0, 0) !important;
   border-radius: 12px !important;
   border: 5px solid rgba(209, 213, 219, 0.3) !important;
 }

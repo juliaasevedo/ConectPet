@@ -27,7 +27,7 @@
                                 <th class="col-md-1 text-center">Proprietário</th>
                                 <th class="col-md-2 text-center">Cartão de vacinas</th>
                                 @if(Auth::user()->level == 2)
-                                <th class="col-md-5 text-center">Registrar Vacina</th>
+                                <th class="col-md-1 text-center">Registrar Vacina</th>
                                 @else
                                 <th class="col-md-1 text-center" text-center>Editar Pet</th>
                                 @endif
@@ -86,6 +86,7 @@
         } else {
             // Se ainda não foi inicializada, configurar DataTable para #tabela
             table = $('#tabela').DataTable({
+            "scrollX":true,
                 "language": {
                     processing: "Processando...",
                     search: "Pesquisar&nbsp;:",

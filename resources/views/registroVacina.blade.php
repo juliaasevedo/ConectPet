@@ -25,7 +25,7 @@
                                 <select name="vacina" id="vacina" class="form-control">
                                     <option value="0" selected>Selecione uma opção...</option>
                                     @foreach($vacinas as $vacina)
-                                    <option value="{{ $vacina->id }}">Nome: {{$vacina->name}} - Lote: {{$vacina->lote}} - Validade: {{ date('d/m/Y', strtotime($vacina->dataValidade)) }}</option>
+                                    <option value="{{ $vacina->id }}">{{$vacina->name}} - Lote: {{$vacina->lote}} - Validade: {{ date('d/m/Y', strtotime($vacina->dataValidade)) }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -60,4 +60,5 @@
         </div>
     </div>
 </div>
+
 @endsection

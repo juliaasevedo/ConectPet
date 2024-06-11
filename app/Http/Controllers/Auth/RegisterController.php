@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'level' => ['required', 'string'],         
+            'level' => ['required', 'string'],
             'crmv' => ['nullable', 'string', 'unique:users'],
         ]);
     }
@@ -69,21 +69,33 @@ class RegisterController extends Controller
     {
         if (User::where('crmv', $data['crmv'])->exists()) {
             session()->flash('mensagem-erro', 'Já existe um usuário com o mesmo CRMV.');
-            
         }
         try {
             $user = User::create([
-            'name' => $data['name'],             
-            'email' => $data['email'],             
-            'level' => $data['level'],             
-            'crmv' => $data['crmv'],             
-            'password' => Hash::make($data['password']),]);
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'level' => $data['level'],
+                'crmv' => $data['crmv'],
+                'password' => Hash::make($data['password']),
+            ]);
 
             session()->flash('mensagem-sucesso', 'Dados inseridos com sucesso!');
             return $user;
         } catch (QueryException $e) {
             session()->flash('mensagem-erro', 'Erro ao salvar o registro.');
-           
         }
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(\Illuminate\Http\Request $request, $user)
+    {
+        $this->guard()->logout();
+        return redirect('/login')->with('status', 'Registration successful! Please log in.');
     }
 }

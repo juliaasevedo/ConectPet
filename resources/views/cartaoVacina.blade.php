@@ -7,92 +7,121 @@
             <div class="card">
                 <div class="card-header">Cartão de vacina de {{$pet[0]->name}}</div>
                 <div class="card-body">
-                    <form method="POST" action="">
-                        @csrf
                         @foreach($pet as $pet)
-                        <div class="row form-group">
-                            <label for="name" class="col-md-1 col-form-label text-md-right">Nome:</label>
+                        <div class="row text-center "id="vacinaInfo">
+                            <div class="col-md-2"></div>
                             <div class="col-md-2">
-                                <input type="text" id="name" class="form-control" name="name" required value="{{$pet->name}}">
+                                <h5>Nome:</h5>
+                                <p>{{$pet->name}}</p>
                             </div>
-                            <label for="tipo" class="col-md-1 col-form-label text-md-right">Tipo:</label>
                             <div class="col-md-2">
+                                <h5>Tipo:</h5>
                                 @if($pet->tipo == 1)
-                                <input type="text" id="tipo" class="form-control" name="tipo" required value="Gato">
+                                <p>Gato</p>
                                 @else
-                                <input type="text" id="tipo" class="form-control" name="tipo" required value="Cachorro">
+                                <p>Cachorro</p>
                                 @endif
                             </div>
-                            <label for="raca" class="col-md-1 col-form-label text-md-right">Raça:</label>
                             <div class="col-md-2">
-                                <input type="text" id="raca" class="form-control" name="raca" required value="{{$pet->raca}}">
+                                <h5>Raça:</h5>
+                                <p>{{$pet->raca}}</p>
                             </div>
-                            <label for="proprietario" class="col-md-1 col-form-label text-md-right">Proprietário:</label>
+            
                             <div class="col-md-2">
-                                <input type="text" id="proprietario" class="form-control" name="proprietario" required value="{{$proprietarios[0]->name}}">
+                                <h5>Proprietário:</h5>
+                                <p>{{$proprietarios[0]->name}}</p>
                             </div>
+                            <div class="col-md-2"></div>
                         </div>
                         @endforeach
                         <br>
-                        <h1 class="text-center">VACINAS:</h1>
-                        @foreach($veterinarios as $veterinario)
-                        @foreach($vacinasAplicadas->where('veterinario', $veterinario->id) as $vacinaAplicada)
+                        <div class="card">
+                            <div class="card-header">Vacinas</div>
+                            <div class="card-body">
 
+                                <table class="table text-center" id="tabela">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1 text-center">Nome</th>
+                                            <th class="col-md-1 text-center">Dose</th>
+                                            <th class="col-md-1 text-center">Lote</th>
+                                            <th class="col-md-1 text-center">Veterinário</th>
+                                            <th class="col-md-1 text-center">CRMV</th>
+                                            <th class="col-md-4 text-center">Data de Aplicação</th>
+                                            <th class="col-md-3 text-center">Próxima Aplicação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($veterinarios as $veterinario)
+                                        @foreach($vacinasAplicadas->where('veterinario', $veterinario->id) as $vacinaAplicada)
+                                        <tr>
+                                            @foreach($vacinas as $vacina)
+                                            @if($vacinaAplicada->vacina == $vacina->id)
+                                            <td class="col-md-1">{{$vacina->name}}</td>
+                                            @endif
+                                            @endforeach
 
-                        <div class="row form-group">
-                            <label for="vacina" class="col-md-1 col-form-label text-md-right">Vacina:</label>
-                            <div class="col-md-3">
-                                @foreach($vacinas as $vacina)
-                                @if($vacinaAplicada->vacina == $vacina->id)
-                                <input type="text" id="vacina" class="form-control" name="vacina" required value="{{$vacina->name}}">
-                                @endif
-                                @endforeach
+                                            @foreach($vacinas as $vacina)
+                                            @if($vacinaAplicada->vacina == $vacina->id)
+                                            <td class="col-md-1">{{$vacina->dose}}</td>
+                                            @endif
+                                            @endforeach
+
+                                            @foreach($vacinas as $vacina)
+                                            @if($vacinaAplicada->vacina == $vacina->id)
+                                            <td class="col-md-1">{{$vacina->lote}}</td>
+                                            @endif
+                                            @endforeach
+
+                                            <td class="col-md-1">{{$veterinario->name}}</td>
+                                            <td class="col-md-1">{{$veterinario->crmv}}</td>
+                                            <td class="col-md-4">{{$vacinaAplicada->created_at->format('d/m/Y')}}</td>
+                                            <td class="col-md-3">{{ date('d/m/Y', strtotime($vacinaAplicada->proxAplicacao)) }}</td>
+                                        </tr>
+                                        @endforeach
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                            <label for="dose" class="col-md-1 col-form-label text-md-right">Dose:</label>
-                            <div class="col-md-3">
-                                @foreach($vacinas as $vacina)
-                                @if($vacinaAplicada->vacina == $vacina->id)
-                                <input type="text" id="dose" class="form-control" name="dose" required value="{{$vacina->dose}}">
-                                @endif
-                                @endforeach
-                            </div>
-                            <label for="lote" class="col-md-1 col-form-label text-md-right">Lote::</label>
-                            <div class="col-md-3">
-                                @foreach($vacinas as $vacina)
-                                @if($vacinaAplicada->vacina == $vacina->id)
-                                <input type="text" id="lote" class="form-control" name="lote" required value="{{$vacina->lote}}">
-                                @endif
-                                @endforeach
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row form-group">
-                            <label for="veterinario" class="col-md-1 col-form-label text-md-right">Veterinário:</label>
-                            <div class="col-md-2">
-                                <input type="text" id="veterinário" class="form-control" name="veterinário" required value="{{$veterinario->name}}">
-                            </div>
-                            <label for="crmv" class="col-md-1 col-form-label text-md-right">CRMV::</label>
-                            <div class="col-md-2">
-                                <input type="text" id="crmv" class="form-control" name="crmv" required value="{{$veterinario->crmv}}">
-                            </div>
-                            <label for="dataAplicacao" class="col-md-1 col-form-label text-md-right">Data de Aplicação:</label>
-                            <div class="col-md-2">
-                                <input type="text" id="dataAplicacao" class="form-control" name="dataAplicacao" required value="{{$vacinaAplicada->created_at->format('d/m/Y')}}">
-                            </div>
-                            <label for="proxAplicacao" class="col-md-1 col-form-label text-md-right">Próxima Aplicação:</label>
-                            <div class="col-md-2">
-                                <input type="text" id="proxAplicacao" class="form-control" name="proxAplicacao" required value="{{ date('d/m/Y', strtotime($vacinaAplicada->proxAplicacao)) }}">
-                            </div>
-                        </div>
-                        @endforeach
-                        @endforeach
-                        <br>
-                        <br>
-                        
-                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        // Inicializar a tabela #tabela, independentemente
+        if ($.fn.dataTable.isDataTable('#tabela')) {
+            table = $('#tabela').DataTable();
+        } else {
+            // Se ainda não foi inicializada, configurar DataTable para #tabela
+            table = $('#tabela').DataTable({
+                "scrollX":true,
+                "language": {
+                    processing: "Processando...",
+                    search: "Pesquisar&nbsp;:",
+                    lengthMenu: "Mostrar _MENU_ itens",
+                    info: "Exibindo _START_ a _END_ item em _TOTAL_ itens",
+                    infoEmpty: "Exibindo item de 0 a 0 de 0 itens",
+                    infoFiltered: "(filtrado por _MAX_ itens no total)",
+                    infoPostFix: "",
+                    loadingRecords: "Carregando...",
+                    zeroRecords: "Nenhum item para exibir",
+                    emptyTable: "Nenhum dado disponível na tabela",
+                    paginate: {
+                        first: "Primeiro",
+                        previous: "Anterior",
+                        next: "Próximo",
+                        last: "Último"
+                    },
+                    aria: {
+                        sortAscending: ": habilita a ordenação da coluna em ordem crescente",
+                        sortDescending: ": habilita a ordenação da coluna em ordem decrescente"
+                    }
+                }
+            });
+        }
+
+    });
+</script>
 @endsection

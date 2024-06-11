@@ -13,11 +13,12 @@
     </div>
     <br>
     <div class="row justify-content-center">
-        <div class="col-md-8" id="tabelapets">
+        <div class="col-xl-auto" id="tabelapets">
             <div class="card">
                 <div class="card-header">{{ __('Vacinas') }}</div>
 
                 <div class="card-body">
+                    <div class="table-responsive">
                     <table class="table text-center" id="tabela">
                         <thead>
                             <tr>
@@ -30,14 +31,15 @@
                         <tbody>
                             @foreach($vacinas as $vacina)
                             <tr>
-                                <td class="col-md-3">{{$vacina->name}}</td>
-                                <td class="col-md-3">{{$vacina->dose}}</td>
-                                <td class="col-md-3">{{$vacina->lote}}</td>
-                                <td class="col-md-3">{{ date('d/m/Y', strtotime($vacina->dataValidade))}}</td>
+                                <td class="col-md-3 text-center">{{$vacina->name}}</td>
+                                <td class="col-md-3 text-center">{{$vacina->dose}}</td>
+                                <td class="col-md-3 text-center">{{$vacina->lote}}</td>
+                                <td class="col-md-3 text-center">{{ date('d/m/Y', strtotime($vacina->dataValidade))}}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
